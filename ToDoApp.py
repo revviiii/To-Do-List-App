@@ -1,22 +1,29 @@
-tasks=[]
+tasks = []
 
-def addtask(task) :
-  tasks.append(task)
-  print("task added!")
+def add_task(task):
+    """Add a new task to the list"""
+    tasks.append(task)
+    print("Task added successfully!")
 
-def showTasks( ):
-    if len(tasks)==0 :
-      print("no tasks yet")
+def show_tasks():
+    """Display all tasks"""
+    if len(tasks) == 0:
+        print("No tasks added yet")
     else:
-     for i in range (len(tasks)):
-      print(i+1,".",tasks[i])
-
-def removetask(tasknumber):
-    tasks.pop(tasknumber) 
-    print("task removed!!")
+        for i in range (len(tasks)):
+            print(i + 1, ".", tasks[i])
+            
+def remove_task(task_num):
+    """Remove a task by its number"""
+    if task_num < 1 or task_num > len(tasks):
+        print("Invalid task number!")
+    else:
+        tasks.pop(task_num - 1) 
+        print("Task removed successfully!")
 
 def main():
     while True:
+
         print("--------------To-Do List Menu--------------")
         print("1. Add Task")
         print("2. Show Tasks")
