@@ -23,22 +23,32 @@ def remove_task(task_num):
 
 def main():
     while True:
-        print("1 Add Task")
-        print("2.Show Tasks")
-        print("3.Remove Task")
-        print("4- Exit")
-        ch = input("enter choice : ")
-        if ch=="1":
-            t = input("enter task : ")
+
+        print("--------------To-Do List Menu--------------")
+        print("1. Add Task")
+        print("2. Show Tasks")
+        print("3. Remove Task")
+        print("4. Exit")
+        
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            t = input("Enter your to-do task: ")
             add_task(t)
-        elif ch=="2":
+
+        elif choice =="2":
             show_tasks()
-        elif ch=="3":
-            n=int(input("enter task no to remove: "))
+
+        elif choice =="3":
+          try:
+            n = int(input("Enter task number to remove: "))
             remove_task(n)
-        elif ch=="4":
+          except ValueError:
+                print("Invalid input. Please enter a number.")
+
+        elif choice =="4":
+            print("Exiting program...")
             break
         else:
-            print("wrong choice!!")
-
+            print("Invalid choice! Please try again.")
 main()
