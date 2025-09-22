@@ -1,19 +1,23 @@
-tasks=[]
+tasks = []
 
-def addtask(task) :
-  tasks.append(task)
-  print("task added!")
+def add_task(task):
+    tasks.append(task)
+    print("Task added!")
 
-def showTasks( ):
-    if len(tasks)==0 :
-      print("no tasks yet")
+def show_tasks():
+    if len(tasks) == 0:
+        print("No tasks yet")
     else:
-     for i in range (len(tasks)):
-      print(i+1,".",tasks[i])
+        for i in range (len(tasks)):
+            print(i + 1, ".", tasks[i])
 
-def removetask(tasknumber):
-    tasks.pop(tasknumber) 
-    print("task removed!!")
+def remove_task(taskNum):
+    if taskNum < 1 or taskNum > len(tasks):
+        print("Invalid task number!!")
+        return
+    else:
+        tasks.pop(taskNum - 1) 
+        print("Task removed!!")
 
 def main():
     while True:
@@ -24,14 +28,15 @@ def main():
         ch = input("enter choice : ")
         if ch=="1":
             t = input("enter task : ")
-            addtask(t)
+            add_task(t)
         elif ch=="2":
-            showTasks()
+            show_tasks()
         elif ch=="3":
             n=int(input("enter task no to remove: "))
-            removetask(n)
+            remove_task(n)
         elif ch=="4":
-            break;
+            break
         else:
             print("wrong choice!!")
+
 main()
